@@ -1,0 +1,6 @@
+;blogger-import.php : import data into blogger from xml dump file
+
+;ZendGdata-0.7.0-jer.patch : patch to allow vanity domains ... a la google hosting service, appears to patch against ZendGdata-0.9.2-Beta
+
+;wp-gdata-2.0.x.php : a wp/wp-gdata.php script to dump all entries in xml
+;roller-export.tmpl : template to dump all data from roller in psuedo atom format

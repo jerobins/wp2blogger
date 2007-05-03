@@ -1,0 +1,16 @@
+diff -urp ZendGdata-0.7.0/library/Zend/Gdata/Blogger.php ZendGdata-0.7.0-jer/library/Zend/Gdata/Blogger.php
+--- ZendGdata-0.7.0/library/Zend/Gdata/Blogger.php	Mon Jan 15 20:37:56 2007
++++ ZendGdata-0.7.0-jer/library/Zend/Gdata/Blogger.php	Fri Feb  2 03:09:51 2007
+@@ -55,7 +55,11 @@ class Zend_Gdata_Blogger extends Zend_Gd
+         if (!isset($this->blogName)) {
+             throw new Zend_Gdata_InvalidArgumentException('You must specify a blog name.');
+         }
+-        $uri = "http://{$this->blogName}.blogspot.com/feeds/posts/default";
++        if ( strpos($this->blogName, '.') === false ){
++         $uri = "http://{$this->blogName}.blogspot.com/feeds/posts/default";
++        } else {
++         $uri = "http://{$this->blogName}/feeds/posts/default";
++        }
+         $uri .= $this->getQueryString();
+ 
+         /**
