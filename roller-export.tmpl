@@ -1,0 +1,12 @@
+$pageHelper.setContentType("application/rss+xml;charset=utf-8")<?xml version="1.0" encoding="utf-8" ?>
+<feed>
+#set( $entries = $pageModel.getRecentWeblogEntriesArray(5000, 'nil') )
+#foreach( $entry in $entries )
+<entry>
+<title>$utilities.textToHTML($entry.title,true)</title>
+<content>#showEntryDescription($entry)</content>
+<category term="$utilities.textToHTML($entry.category.name,true)"></category>
+<published>$utilities.formatRfc822Date($entry.pubTime)</published>
+</entry>
+#end
+</feed>
